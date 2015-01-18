@@ -18,6 +18,8 @@ namespace mountain_thoughts
             IntPtr handle = mountainProcess.Handle;
             IntPtr address = NativeMethods.GetStringAddress(mountainProcess);
 
+            Twitter.Authenticate();
+
             NativeMethods.StartReadingString(handle, address, Callback);
             Console.ReadLine();
             NativeMethods.StopReadingString();
@@ -26,6 +28,7 @@ namespace mountain_thoughts
         private static void Callback(string thought)
         {
             Console.WriteLine(thought);
+            Twitter.Tweet(string.Format("\"{0}\"", thought));
         }
     }
 }
