@@ -15,7 +15,7 @@ namespace mountain_thoughts
         private static readonly string[] Exclusions =
         {
             string.Empty,
-            "SAVING... "
+            "SAVING..."
         };
 
         private static bool _reading;
