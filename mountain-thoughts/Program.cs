@@ -28,11 +28,15 @@ namespace mountain_thoughts
         private static void Callback(string thought)
         {
             string properThought = string.Empty;
+            bool isFirst = true;
             foreach (string word in thought.Split(' '))
             {
                 string lowerWord = word;
                 if (word != "I")
                     lowerWord = word.ToLowerInvariant();
+                if (isFirst)
+                    lowerWord = char.ToUpperInvariant(lowerWord[0]) + lowerWord.Substring(1);
+                isFirst = false;
                 properThought += lowerWord + " ";
             }
             properThought = properThought.Trim();
