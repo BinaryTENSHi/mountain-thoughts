@@ -62,7 +62,7 @@ namespace mountain_thoughts
         private static bool ParseString(byte[] stringBuffer)
         {
             string currString = Encoding.ASCII.GetString(stringBuffer).Split('\0')[0];
-            if (_prevString == currString)
+            if (_prevString == currString && currString != "SAVING... ")
                 return true;
             _printed = false;
             _prevString = currString;
