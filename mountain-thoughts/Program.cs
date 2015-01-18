@@ -27,8 +27,18 @@ namespace mountain_thoughts
 
         private static void Callback(string thought)
         {
-            Console.WriteLine(thought);
-            Twitter.Tweet(string.Format("\"{0}\"", thought));
+            string properThought = string.Empty;
+            foreach (string word in thought.Split(' '))
+            {
+                string lowerWord = word;
+                if (word != "I")
+                    lowerWord = word.ToLowerInvariant();
+                properThought += lowerWord + " ";
+            }
+            properThought = properThought.Trim();
+
+            Console.WriteLine(properThought);
+            Twitter.Tweet(string.Format("\"{0}\"", properThought));
         }
     }
 }
