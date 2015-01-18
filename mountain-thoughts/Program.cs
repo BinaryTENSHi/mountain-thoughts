@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Linq;
 
 namespace mountain_thoughts
 {
@@ -29,7 +28,7 @@ namespace mountain_thoughts
         private static void Callback(string thought)
         {
             string properThought = string.Empty;
-            foreach (string word in thought.Split(' ').Skip(1))
+            foreach (string word in thought.Split(' '))
             {
                 string lowerWord = word;
                 if (word != "I")
